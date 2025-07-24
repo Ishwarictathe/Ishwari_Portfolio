@@ -1,11 +1,11 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $('#menu').click(function () {
+    $('#menu').click(function() {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
     });
 
-    $(window).on('scroll load', function () {
+    $(window).on('scroll load', function() {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
         }
 
         // scroll spy
-        $('section').each(function () {
+        $('section').each(function() {
             let height = $(this).height();
             let offset = $(this).offset().top - 200;
             let top = $(window).scrollTop();
@@ -30,7 +30,7 @@ $(document).ready(function () {
     });
 
     // smooth scrolling
-    $('a[href*="#"]').on('click', function (e) {
+    $('a[href*="#"]').on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top,
@@ -38,15 +38,15 @@ $(document).ready(function () {
     });
 
     // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
+    $("#contact-form").submit(function(event) {
         emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
 
         emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
+            .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById("contact-form").reset();
                 alert("Form Submitted Successfully");
-            }, function (error) {
+            }, function(error) {
                 console.log('FAILED...', error);
                 alert("Form Submission Failed! Try Again");
             });
@@ -57,12 +57,11 @@ $(document).ready(function () {
 });
 
 document.addEventListener('visibilitychange',
-    function () {
+    function() {
         if (document.visibilityState === "visible") {
             document.title = "Portfolio | Jigar Sable";
             $("#favicon").attr("href", "assets/images/favicon.png");
-        }
-        else {
+        } else {
             document.title = "Come Back To Portfolio";
             $("#favicon").attr("href", "assets/images/favhand.png");
         }
@@ -71,7 +70,7 @@ document.addEventListener('visibilitychange',
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["frontend development", "backend development", "web designing", "android development", "web development"],
+    strings: ["web development", "Software Testing", "frontend development"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
@@ -82,8 +81,7 @@ var typed = new Typed(".typing-text", {
 async function fetchData(type = "skills") {
     let response
     type === "skills" ?
-        response = await fetch("skills.json")
-        :
+        response = await fetch("skills.json") :
         response = await fetch("./projects/projects.json")
     const data = await response.json();
     return data;
@@ -172,7 +170,7 @@ VanillaTilt.init(document.querySelectorAll(".tilt"), {
 // pre loader end
 
 // disable developer mode
-document.onkeydown = function (e) {
+document.onkeydown = function(e) {
     if (e.keyCode == 123) {
         return false;
     }
@@ -191,9 +189,11 @@ document.onkeydown = function (e) {
 }
 
 // Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+var Tawk_API = Tawk_API || {},
+    Tawk_LoadStart = new Date();
+(function() {
+    var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
     s1.async = true;
     s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
     s1.charset = 'UTF-8';
